@@ -1,0 +1,144 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu",
+    "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  margin-top: 5rem;
+  color: #4d4d4d;
+}
+
+/* Main container of the to-do list */
+.mainForm {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  width: 40vw;
+  min-width: 400px;
+  padding: 1rem;
+}
+
+/* Text input field for task name */
+.taskInput {
+  height: 2rem;
+  border-radius: 0;
+  border: 2px solid black;
+  width: 60%;
+  margin: 5px;
+}
+
+/* Global styling for all buttons */
+.btn {
+  border: 1.5px solid rgb(110, 108, 108);
+  background-color: white;
+  margin-bottom: 0;
+  height: 2rem;
+}
+
+/* Button to add new task */
+.addBtn {
+  background-color: black;
+  color: white;
+  border-width: 1px;
+  margin: 5px;
+  width: 60%;
+  height: 2rem;
+}
+
+/* Contains the display option buttons and all of the tasks */
+.taskContainer {
+  width: 55%;
+}
+
+#taskCounter {
+  margin-top: 1rem;
+  font-weight: bold;
+  color: #4d4d4d;
+}
+
+/* Container for the All, Active, Completed buttons */
+.taskDisplayOptions {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+/* Styling for the All, Active, Complete button themselves*/
+.taskDisplayOptions button {
+  flex-grow: 1;
+  flex-basis: 5rem;
+  border: 1px solid rgb(182, 177, 177);
+}
+
+/* Task name and checkbox */
+.task div:first-child {
+  display: flex;
+  align-items: center;
+  height: 1.5rem;
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+/* Input field for new task name */
+.task div:first-child input[type="text"] {
+  height: 1.5rem;
+}
+
+/* Save new name button */
+.task div:first-child button {
+  height: 1.5rem;
+  margin-left: 5px;
+}
+
+/* Edit and Delete buttons container */
+.taskEditBtns {
+  display: flex;
+  justify-items: center;
+  gap: 1rem;
+}
+
+/* the Edit and Delete buttons themselves*/
+.taskEditBtns button {
+  flex-grow: 1;
+}
+
+button:hover {
+  cursor: pointer;
+}
+
+/* Displays which option is currently selected */
+.taskDisplayOnFocus {
+  outline: rgb(75, 75, 168) dashed 2px;
+  text-decoration: underline;
+}
+
+input[type="checkbox"] {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  color: #4d4d4d;
+  font-weight: bolder;
+  content: "";
+  appearance: none;
+  width: 25px;
+  height: 25px;
+  margin-right: 5px;
+  border: 1.5px solid rgb(110, 108, 108);
+}
+
+input[type="checkbox"]:checked::after {
+  content: "\2714";
+}
+
+/* Additional styling for the Delete task button */
+.delete {
+  background-color: #bb4742;
+  color: white;
+}
