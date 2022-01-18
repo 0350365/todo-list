@@ -1,5 +1,5 @@
 import Task from "./Task";
-import Button from "./Button";
+import { Button } from "antd";
 import { useState } from "react";
 
 function TaskContainer({ tasks, toggleTasks, deleteTask, editName }) {
@@ -25,21 +25,10 @@ function TaskContainer({ tasks, toggleTasks, deleteTask, editName }) {
   return (
     <div className="taskContainer">
       <div className="taskDisplayOptions">
-        <Button
-          Class={`btn ${displayMode === 0 && "taskDisplayOnFocus"}`}
-          text="All"
-          onClick={() => toggleTasksDisplay(0)}
-        />
-        <Button
-          Class={`btn ${displayMode === 1 && "taskDisplayOnFocus"}`}
-          text="Active"
-          onClick={() => toggleTasksDisplay(1)}
-        />
-        <Button
-          Class={`btn ${displayMode === 2 && "taskDisplayOnFocus"}`}
-          text="Completed"
-          onClick={() => toggleTasksDisplay(2)}
-        />
+        <Button className={`ant-btn ${displayMode === 0 && "taskDisplayOnFocus"}`} onClick={() => toggleTasksDisplay(0)} >All</Button>
+        <Button className={`ant-btn ${displayMode === 1 && "taskDisplayOnFocus"}`} onClick={() => toggleTasksDisplay(1) } >Active</Button>
+        <Button className={`ant-btn ${displayMode === 2 && "taskDisplayOnFocus"}`} onClick={() => toggleTasksDisplay(2)} >Completed</Button>
+
       </div>
 
       {/* Create Task component for each item in tasks */}

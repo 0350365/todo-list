@@ -1,3 +1,5 @@
+@import 'antd/dist/antd.css';
+
 * {
   margin: 0;
   padding: 0;
@@ -33,24 +35,6 @@ body {
   margin: 5px;
 }
 
-/* Global styling for all buttons */
-.btn {
-  border: 1.5px solid rgb(110, 108, 108);
-  background-color: white;
-  margin-bottom: 0;
-  height: 2rem;
-}
-
-/* Button to add new task */
-.addBtn {
-  background-color: black;
-  color: white;
-  border-width: 1px;
-  margin: 5px;
-  width: 60%;
-  height: 2rem;
-}
-
 /* Contains the display option buttons and all of the tasks */
 .taskContainer {
   width: 55%;
@@ -73,14 +57,13 @@ body {
 .taskDisplayOptions button {
   flex-grow: 1;
   flex-basis: 5rem;
-  border: 1px solid rgb(182, 177, 177);
 }
 
 /* Task name and checkbox */
 .task div:first-child {
   display: flex;
   align-items: center;
-  height: 1.5rem;
+  height: 2rem;
   margin-top: 0.5rem;
   margin-bottom: 0.5rem;
 }
@@ -92,7 +75,6 @@ body {
 
 /* Save new name button */
 .task div:first-child button {
-  height: 1.5rem;
   margin-left: 5px;
 }
 
@@ -108,14 +90,12 @@ body {
   flex-grow: 1;
 }
 
-button:hover {
-  cursor: pointer;
-}
-
 /* Displays which option is currently selected */
 .taskDisplayOnFocus {
-  outline: rgb(75, 75, 168) dashed 2px;
-  text-decoration: underline;
+  /* outline: rgb(75, 75, 168) dashed 2px;
+  text-decoration: underline; */
+  color: #1890ff;
+  border-color: #1890ff
 }
 
 input[type="checkbox"] {
@@ -135,10 +115,4 @@ input[type="checkbox"] {
 
 input[type="checkbox"]:checked::after {
   content: "\2714";
-}
-
-/* Additional styling for the Delete task button */
-.delete {
-  background-color: #bb4742;
-  color: white;
 }

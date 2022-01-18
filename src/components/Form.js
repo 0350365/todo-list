@@ -1,5 +1,5 @@
 import { useState } from "react";
-import Button from "./Button";
+import {Button, message} from "antd";
 import TaskContainer from "./TaskContainer";
 
 function Form({ tasks, addTask, toggleTasks, deleteTask, editName }) {
@@ -11,7 +11,8 @@ function Form({ tasks, addTask, toggleTasks, deleteTask, editName }) {
 
   // Check if task name has at least one non-whitespace character in it
   const submitTask = () => {
-    /^\s*$/.test(taskName) ? alert("Invalid task name") : addTask(taskName);
+    message.destroy();
+    /^\s*$/.test(taskName) ? message.error('Invalid task name') : addTask(taskName);
     setTaskName("");
   };
 
@@ -24,7 +25,7 @@ function Form({ tasks, addTask, toggleTasks, deleteTask, editName }) {
         className="taskInput"
         onChange={e => handleName(e.target.value)}
       ></input>
-      <Button Class="addBtn" text="Add" onClick={submitTask} />
+      <Button style={{width:'60%', margin: '5px'}} type="primary" onClick={submitTask}>Add</Button>
       <TaskContainer
         tasks={tasks}
         toggleTasks={toggleTasks}

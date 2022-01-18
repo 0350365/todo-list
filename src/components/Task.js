@@ -1,5 +1,5 @@
 import { useState } from "react";
-import Button from "./Button";
+import { Button, message } from "antd";
 
 function Task({ task, toggleTasks, deleteTask, editName }) {
   const [isNameChange, setIsNameChange] = useState(false);
@@ -10,8 +10,9 @@ function Task({ task, toggleTasks, deleteTask, editName }) {
   };
 
   const validateNewName = name => {
+    message.destroy();
     if (/^\s*$/.test(name)) {
-      alert("New name is invalid");
+      message.error('New name is invalid');
     } else {
       editName(newName, task.id);
       setIsNameChange(false);
@@ -34,21 +35,15 @@ function Task({ task, toggleTasks, deleteTask, editName }) {
               value={newName}
               onChange={e => handleNameChange(e.target.value)}
             ></input>
-            <Button
-              Class="btn"
-              text="Save"
-              onClick={() => {
-                validateNewName(newName);
-              }}
-            />
+            <Button onClick={() => {validateNewName(newName);}}>Save</Button>
           </>
         ) : (
           task.name
         )}
       </div>
       <div className="taskEditBtns">
-        <Button Class="btn" text="Edit" onClick={() => setIsNameChange(!isNameChange)} />
-        <Button Class="btn delete" text="Delete" onClick={() => deleteTask(task.id)} />
+        <Button onClick={() => setIsNameChange(!isNameChange)} > Edit </Button>
+        <Button style={{ background:'#ff4d4f', color:'white' }} onClick={() => deleteTask(task.id)} > Delete </Button>
       </div>
     </div>
   );
