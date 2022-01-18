@@ -1,12 +1,12 @@
 import Task from "./Task";
-import { Button } from "antd";
+import { Button, List } from "antd";
 import { useState } from "react";
 
 function TaskContainer({ tasks, toggleTasks, deleteTask, editName }) {
   // 0 = All tasks, 1 = Active tasks, 2 = Completed tasks
   const [displayMode, setDisplayMode] = useState(0);
 
-  const toggleTasksDisplay = type => {
+  const toggleTasksDisplay = (type) => {
     setDisplayMode(type);
   };
 
@@ -16,32 +16,53 @@ function TaskContainer({ tasks, toggleTasks, deleteTask, editName }) {
       case 0:
         return tasks;
       case 1:
-        return tasks.filter(task => !task.completed);
+        return tasks.filter((task) => !task.completed);
       default:
-        return tasks.filter(task => task.completed);
+        return tasks.filter((task) => task.completed);
     }
   };
 
   return (
-    <div className="taskContainer">
+    <div className="taskContainer" style={{ width: "60%" }}>
       <div className="taskDisplayOptions">
-        <Button className={`ant-btn ${displayMode === 0 && "taskDisplayOnFocus"}`} onClick={() => toggleTasksDisplay(0)} >All</Button>
-        <Button className={`ant-btn ${displayMode === 1 && "taskDisplayOnFocus"}`} onClick={() => toggleTasksDisplay(1) } >Active</Button>
-        <Button className={`ant-btn ${displayMode === 2 && "taskDisplayOnFocus"}`} onClick={() => toggleTasksDisplay(2)} >Completed</Button>
-
+        <Button
+          className={`ant-btn ${displayMode === 0 && "taskDisplayOnFocus"}`}
+          onClick={() => toggleTasksDisplay(0)}
+        >
+          All
+        </Button>
+        <Button
+          className={`ant-btn ${displayMode === 1 && "taskDisplayOnFocus"}`}
+          onClick={() => toggleTasksDisplay(1)}
+        >
+          Active
+        </Button>
+        <Button
+          className={`ant-btn ${displayMode === 2 && "taskDisplayOnFocus"}`}
+          onClick={() => toggleTasksDisplay(2)}
+        >
+          Completed
+        </Button>
       </div>
 
       {/* Create Task component for each item in tasks */}
       <div id="taskCounter">{`${displayTasks().length} tasks remaining`}</div>
-      {displayTasks().map(task => (
-        <Task
-          task={task}
-          key={task.id}
-          toggleTasks={toggleTasks}
-          deleteTask={deleteTask}
-          editName={editName}
-        />
-      ))}
+
+      <List
+        style={{ maxHeight: "70vh", overflow: "auto" }}
+        dataSource={displayTasks()}
+        renderItem={(task) => (
+          <List.Item>
+            <Task
+              task={task}
+              key={task.id}
+              toggleTasks={toggleTasks}
+              deleteTask={deleteTask}
+              editName={editName}
+            />
+          </List.Item>
+        )}
+      />
     </div>
   );
 }
