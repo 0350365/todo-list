@@ -46,16 +46,8 @@ body {
   flex-basis: 5rem;
 }
 
-/* Task name and checkbox */
-.task div:first-child {
-  display: flex;
-  align-items: center;
-  height: 2.5rem;
-}
-
-/* Save new name button */
-.task div:first-child button {
-  margin-left: 5px;
+#newTaskName {
+  height: min-content;
 }
 
 /* Edit and Delete buttons container */
