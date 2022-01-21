@@ -7,7 +7,6 @@ function Task({ task, toggleTasks, deleteTask, editName }) {
   const [isNameChange, setIsNameChange] = useState(false);
 
   const validateNewName = (name) => {
-    console.log(name);
     editName(name.newTaskName, task.id);
     setIsNameChange(false);
   };
